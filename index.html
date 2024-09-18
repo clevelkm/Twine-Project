@@ -3,37 +3,462 @@
 <head>
 <meta charset="utf-8">
 <meta content="width=device-width, initial-scale=1" name="viewport">
-<title>Ostrich</title>
+<title>Soul Swap</title>
 <style title="Twine CSS">@keyframes appear{0%{opacity:0}to{opacity:1}}@keyframes fade-in-out{0%,to{opacity:0}50%{opacity:1}}@keyframes rumble{25%{top:-0.1em}75%{top:.1em}0%,to{top:0px}}@keyframes shudder{25%{left:.1em}75%{left:-0.1em}0%,to{left:0px}}@keyframes buoy{25%{top:.25em}75%{top:-0.25em}0%,to{top:0px}}@keyframes sway{25%{left:.25em}75%{left:-0.25em}0%,to{left:0px}}@keyframes pulse{0%{transform:scale(0, 0)}20%{transform:scale(1.2, 1.2)}40%{transform:scale(0.9, 0.9)}60%{transform:scale(1.05, 1.05)}80%{transform:scale(0.925, 0.925)}to{transform:scale(1, 1)}}@keyframes zoom-in{0%{transform:scale(0, 0)}to{transform:scale(1, 1)}}@keyframes shudder-in{0%,to{transform:translateX(0em)}5%,25%,45%{transform:translateX(-1em)}15%,35%,55%{transform:translateX(1em)}65%{transform:translateX(-0.6em)}75%{transform:translateX(0.6em)}85%{transform:translateX(-0.2em)}95%{transform:translateX(0.2em)}}@keyframes rumble-in{0%,to{transform:translateY(0em)}5%,25%,45%{transform:translateY(-1em)}15%,35%,55%{transform:translateY(1em)}65%{transform:translateY(-0.6em)}75%{transform:translateY(0.6em)}85%{transform:translateY(-0.2em)}95%{transform:translateY(0.2em)}}@keyframes fidget{0%,8.1%,82.1%,31.1%,38.1%,44.1%,40.1%,47.1%,74.1%,16.1%,27.1%,72.1%,24.1%,95.1%,6.1%,36.1%,20.1%,4.1%,91.1%,14.1%,87.1%,to{left:0px;top:0px}8%,82%,31%,38%,44%{left:-1px}40%,47%,74%,16%,27%{left:1px}72%,24%,95%,6%,36%{top:-1px}20%,4%,91%,14%,87%{top:1px}}@keyframes slide-right{0%{transform:translateX(-100vw)}}@keyframes slide-left{0%{transform:translateX(100vw)}}@keyframes slide-up{0%{transform:translateY(100vh)}}@keyframes slide-down{0%{transform:translateY(-100vh)}}@keyframes fade-right{0%{opacity:0;transform:translateX(-1em)}to{opacity:1}}@keyframes fade-left{0%{opacity:0;transform:translateX(1em)}to{opacity:1}}@keyframes fade-up{0%{opacity:0;transform:translateY(1em)}to{opacity:1}}@keyframes fade-down{0%{opacity:0;transform:translateY(-1em)}to{opacity:1}}@keyframes flicker{0%,29%,31%,63%,65%,77%,79%,86%,88%,91%,93%{opacity:0}30%{opacity:.2}64%{opacity:.4}78%{opacity:.6}87%{opacity:.8}92%,to{opacity:1}}@keyframes blur{0%{filter:blur(2rem);opacity:0}25%{opacity:1}to{filter:blur(0rem);opacity:1}}.dom-debug-mode tw-story,.dom-debug-mode tw-passage,.dom-debug-mode tw-sidebar,.dom-debug-mode tw-include,.dom-debug-mode tw-hook,.dom-debug-mode tw-expression,.dom-debug-mode tw-link,.dom-debug-mode tw-dialog,.dom-debug-mode tw-columns,.dom-debug-mode tw-column,.dom-debug-mode tw-align{outline:1px solid #f5a3da;min-height:32px;display:block !important}.dom-debug-mode tw-story::before,.dom-debug-mode tw-passage::before,.dom-debug-mode tw-sidebar::before,.dom-debug-mode tw-include::before,.dom-debug-mode tw-hook::before,.dom-debug-mode tw-expression::before,.dom-debug-mode tw-link::before,.dom-debug-mode tw-dialog::before,.dom-debug-mode tw-columns::before,.dom-debug-mode tw-column::before,.dom-debug-mode tw-align::before{position:absolute;top:0;left:0;height:16px;background-color:#f5a3da;color:#000;font-size:16px;font-weight:normal;font-style:normal;font-family:monospace;display:inline-block;line-height:100%;white-space:pre;z-index:999997}.dom-debug-mode tw-story:hover,.dom-debug-mode tw-passage:hover,.dom-debug-mode tw-sidebar:hover,.dom-debug-mode tw-include:hover,.dom-debug-mode tw-hook:hover,.dom-debug-mode tw-expression:hover,.dom-debug-mode tw-link:hover,.dom-debug-mode tw-dialog:hover,.dom-debug-mode tw-columns:hover,.dom-debug-mode tw-column:hover,.dom-debug-mode tw-align:hover{outline:1px solid #fc9}.dom-debug-mode tw-story:hover::before,.dom-debug-mode tw-passage:hover::before,.dom-debug-mode tw-sidebar:hover::before,.dom-debug-mode tw-include:hover::before,.dom-debug-mode tw-hook:hover::before,.dom-debug-mode tw-expression:hover::before,.dom-debug-mode tw-link:hover::before,.dom-debug-mode tw-dialog:hover::before,.dom-debug-mode tw-columns:hover::before,.dom-debug-mode tw-column:hover::before,.dom-debug-mode tw-align:hover::before{background-color:#fc9;transition:background-color 1s}.dom-debug-mode tw-passage,.dom-debug-mode tw-include,.dom-debug-mode tw-hook,.dom-debug-mode tw-expression,.dom-debug-mode tw-link,.dom-debug-mode tw-dialog,.dom-debug-mode tw-columns,.dom-debug-mode tw-column,.dom-debug-mode tw-align{padding:1em;margin:0}.dom-debug-mode tw-story::before{content:'<tw-story tags="' attr(tags) '">'}.dom-debug-mode tw-passage::before{top:-16px;content:'<tw-passage tags="' attr(tags) '">'}.dom-debug-mode tw-sidebar::before{top:-16px;content:"<tw-sidebar>"}.dom-debug-mode tw-hook::before{content:'<tw-hook name="' attr(name) '">'}.dom-debug-mode tw-expression::before{content:'<tw-expression name="' attr(name) '">'}.dom-debug-mode tw-link::before{content:'<tw-link name="' attr(name) '">'}.dom-debug-mode tw-dialog::before{content:"<tw-dialog>"}.dom-debug-mode tw-columns::before{content:"<tw-columns>"}.dom-debug-mode tw-column::before{content:"<tw-column>"}.dom-debug-mode tw-align::before{content:"<tw-align>"}.dom-debug-mode tw-include::before{content:'<tw-include type="' attr(type) '" name="' attr(name) '">'}tw-open-button[goto]{display:none}.debug-mode tw-open-button[replay],.debug-mode tw-open-button[goto]{display:inline}.debug-mode tw-expression{display:inline-block !important}.debug-mode tw-expression[type=variable]::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"$" attr(name)}.debug-mode tw-expression[type=tempVariable]::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"_" attr(name)}.debug-mode tw-expression[return=boolean]{background-color:rgba(179,179,179,.2)}.debug-mode tw-expression[return=array]{background-color:rgba(255,102,102,.2)}.debug-mode tw-expression[return=dataset]{background-color:rgba(255,128,0,.2)}.debug-mode tw-expression[return=number]{background-color:rgba(255,179,102,.2)}.debug-mode tw-expression[return=datamap]{background-color:rgba(255,255,102,.2)}.debug-mode tw-expression[return=changer]{background-color:rgba(179,255,102,.2)}.debug-mode tw-expression[return=lambda]{background-color:rgba(102,255,102,.2)}.debug-mode tw-expression[return=hookname]{background-color:rgba(102,255,204,.2)}.debug-mode tw-expression[return=string]{background-color:rgba(102,255,255,.2)}.debug-mode tw-expression[return=datatype]{background-color:rgba(102,153,255,.2)}.debug-mode tw-expression[return=gradient],.debug-mode tw-expression[return=colour]{background-color:rgba(204,102,255,.2)}.debug-mode tw-expression[return=instant],.debug-mode tw-expression[return=macro]{background-color:rgba(240,117,199,.2)}.debug-mode tw-expression[return=command]{background-color:rgba(153,153,255,.2)}.debug-mode tw-expression.false{background-color:rgba(255,0,0,.2) !important}.debug-mode tw-expression[type=macro]::before{content:"(" attr(name) ":)";padding:0 .5rem;font-size:1rem;vertical-align:middle;line-height:normal;background-color:inherit;border:1px solid rgba(255,255,255,.5)}.debug-mode tw-expression[title]:not([title=""]){cursor:help}.debug-mode tw-hook{background-color:rgba(0,85,255,.1) !important}.debug-mode tw-hook::before{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"["}.debug-mode tw-hook::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"]"}.debug-mode tw-hook[name]::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"]<" attr(name) "|"}.debug-mode tw-pseudo-hook{background-color:rgba(255,170,0,.1) !important}.debug-mode tw-collapsed::before{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"{"}.debug-mode tw-collapsed::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"}"}.debug-mode tw-verbatim::before,.debug-mode tw-verbatim::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:"`"}.debug-mode tw-align[style*="text-align: center"]{background:linear-gradient(to right, hsla(14, 100%, 87%, 0) 0%, hsla(14, 100%, 87%, 0.25) 50%, hsla(14, 100%, 87%, 0) 100%)}.debug-mode tw-align[style*="text-align: left"]{background:linear-gradient(to right, hsla(14, 100%, 87%, 0.25) 0%, hsla(14, 100%, 87%, 0) 100%)}.debug-mode tw-align[style*="text-align: right"]{background:linear-gradient(to right, hsla(14, 100%, 87%, 0) 0%, hsla(14, 100%, 87%, 0.25) 100%)}.debug-mode tw-column{background-color:rgba(189,228,255,.2)}.debug-mode tw-enchantment{animation:enchantment .5s infinite;border:1px solid}.debug-mode tw-link::after,.debug-mode tw-broken-link::after{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:attr(passage-name)}.debug-mode tw-include{background-color:rgba(204,128,51,.1)}.debug-mode tw-include::before{font-size:.8rem;padding-left:.2rem;padding-right:.2rem;vertical-align:top;content:attr(type) ' "' attr(name) '"'}.debug-dialogs tw-backdrop:not(.eval-replay):not(.harlowe-crash){pointer-events:none;opacity:.1}tw-eval-replay tw-eval-code,tw-eval-replay tw-eval-explanation{max-height:20vh;overflow:auto;margin:10px auto}tw-eval-replay tw-eval-code{display:block;font-family:monospace;padding-bottom:1ex;border-bottom:2px solid gray}tw-eval-replay tw-eval-explanation{display:block;text-align:center}tw-eval-replay tw-eval-explanation>code{white-space:pre-wrap}tw-eval-replay tw-eval-explanation>code.from-block{width:40%;display:inline-block;text-align:left;max-height:4em;overflow-wrap:anywhere;overflow-y:scroll}tw-eval-replay tw-eval-explanation>code.from-block~.to-desc{width:calc(40% - 2em);margin-left:2em;display:inline-block}tw-eval-replay tw-eval-explanation>code.from-block+span::after{content:"..."}tw-eval-replay tw-eval-explanation>code.from-inline{text-align:right}tw-eval-replay tw-eval-explanation>:nth-child(2){white-space:pre}tw-eval-replay tw-eval-explanation>.to-desc{text-align:left}tw-eval-replay tw-eval-explanation>table{width:100%;margin-top:1em}tw-eval-replay tw-eval-explanation>table td{white-space:pre-wrap !important;word-wrap:anywhere}tw-eval-replay tw-eval-reason{text-align:center;font-size:80%;font-style:italic;display:block}tw-eval-replay tw-eval-it{text-align:center;font-size:80%;display:block}tw-eval-replay tw-dialog-links{display:-ms-flexbox;display:flex;-ms-flex-pack:distribute;justify-content:space-around}@keyframes enchantment{0%,to{border-color:#ffb366}50%{border-color:#6fc}}tw-debugger{position:fixed;box-sizing:border-box;bottom:0;right:0;z-index:999999;min-width:14em;min-height:1em;padding:0em .5em .5em 1em;font-size:1.25em;font-family:sans-serif;color:#262626;background-color:#fff;border-left:solid #262626 2px;border-top:solid #262626 2px;border-top-left-radius:.5em;opacity:1}tw-debugger.fade-panel:not(:hover){opacity:.33}tw-debugger.theme-dark{color:#d9d9d9;background-color:#000}tw-debugger.theme-dark{border-color:#d9d9d9 rgba(0,0,0,0) rgba(0,0,0,0) #d9d9d9}tw-debugger select{margin-right:1em;width:12em}tw-debugger button,tw-debugger tw-link{border-radius:3px;border:solid #999 1px;margin:auto 4px;color:#262626;background-color:#fff;cursor:pointer}tw-debugger button.enabled,tw-debugger tw-link.enabled{color:#000;background-color:#d9d9d9;box-shadow:inset #999 3px 5px .5em}tw-debugger.theme-dark button,tw-debugger.theme-dark tw-link{color:#d9d9d9;background-color:#000;border-color:#666}tw-debugger.theme-dark button.enabled,tw-debugger.theme-dark tw-link.enabled{color:#e6e6e6;background-color:#424242;box-shadow:inset #666 3px 5px .5em}tw-debugger button{font-size:1em;overflow-x:hidden;text-overflow:ellipsis;white-space:pre}tw-debugger tw-link{font-size:1.25em;border-radius:16px;border-style:solid;border-width:2px;text-align:center;padding:0px 8px;display:block}tw-debugger tw-link:hover{border-color:#262626;color:#262626}tw-debugger.theme-dark tw-link:hover{border-color:#d9d9d9;color:#d9d9d9}tw-debugger tw-dialog{background-color:#fff;color:#000;font-size:1.25em}tw-debugger.theme-dark tw-dialog{background-color:#000;color:#e6e6e6}tw-debugger .panel{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;position:absolute;bottom:100%;left:-2px;right:0;padding:1em;overflow-y:scroll;overflow-x:hidden;border:inherit;box-sizing:content-box;background-color:#fff;border-bottom:solid #999 2px;border-top-left-radius:.5em;border-bottom-left-radius:.5em;font-size:.8em}tw-debugger .panel:empty,tw-debugger .panel[hidden]{display:none}tw-debugger.theme-dark .panel{background-color:#000;border-bottom-color:#666}tw-debugger .panel-source .panel-row-buttons{width:2rem}tw-debugger .panel-source .source-tags{width:20%;font-style:italic}tw-debugger .panel-row-source td{font-family:monospace;font-size:1rem;white-space:pre-wrap;overflow-wrap:anywhere;max-height:8rem;padding:1rem}tw-debugger .panel-rows{width:100%;overflow-x:scroll}tw-debugger .panel-rows>*{display:table-row}tw-debugger .panel-rows>div:nth-of-type(2n){background-color:#e6e6e6}tw-debugger .panel-tools .panel-rows>*,tw-debugger .panel-options .panel-rows>*{margin-top:.4rem;display:block}tw-debugger.theme-dark .panel-rows>div:nth-of-type(2n){background-color:#212121}tw-debugger .panel-row-buttons{text-align:right}tw-debugger .panel-variables .panel-rows:empty::before{content:"~ No variables ~";font-style:italic;color:#575757;text-align:center}tw-debugger .panel-enchantments .panel-rows:empty::before{content:"~ No enchantments ~";font-style:italic;color:#575757;text-align:center}tw-debugger .panel-errors .panel-rows:empty::before{content:"~ No errors... for now. ~";font-style:italic;color:#575757;text-align:center}tw-debugger .panel-errors .panel-rows:empty+.panel-errors-bottom{display:none}tw-debugger.theme-dark .panel-variables .panel-rows:empty::before,tw-debugger.theme-dark .panel-enchantments .panel-rows:empty::before,tw-debugger.theme-dark .panel-errors .panel-rows:empty::before{color:#a8a8a8}tw-debugger .panel-rows:empty+.panel-variables-bottom{display:none}tw-debugger th[data-col]{text-decoration:underline;cursor:pointer}tw-debugger th[data-col][data-order=asc]::after{content:"↓"}tw-debugger th[data-col][data-order=desc]::after{content:"↑"}tw-debugger .panel-storylets:not(.panel-exclusive) .storylet-exclusive,tw-debugger .panel-storylets:not(.panel-urgent) .storylet-urgent{display:none}tw-debugger .storylet-exclusive,tw-debugger .storylet-urgent,tw-debugger .storylet-open{text-align:center}tw-debugger .panel-variables-bottom{padding-top:5px}tw-debugger .enchantment-row{min-height:1.5em}tw-debugger .variable-path{opacity:.4}tw-debugger .temporary-variable-scope,tw-debugger .enchantment-local{font-family:sans-serif;font-weight:normal;opacity:.8;font-size:.75em}tw-debugger .temporary-variable-scope:not(:empty)::before,tw-debugger .enchantment-local:not(:empty)::before{content:" in "}tw-debugger .variable-name,tw-debugger .enchantment-name{font-family:monospace;font-weight:bold}tw-debugger .variable-type{color:#575757;font-weight:normal;text-overflow:ellipsis;overflow:hidden;max-width:10em}tw-debugger.theme-dark .variable-type{color:#a8a8a8}tw-debugger .error-row{display:table-row;background-color:rgba(230,101,204,.3)}tw-debugger .error-row:nth-of-type(2n){background-color:rgba(237,145,219,.3)}tw-debugger .error-row>*{display:table-cell;padding:.25em .5em}tw-debugger .error-row .error-message[title]:not([title=""]){cursor:help}tw-debugger .error-row .error-passage{color:#575757}tw-debugger.theme-dark .error-row .error-passage{color:#a8a8a8}tw-debugger .storylet-row{background-color:rgba(193,240,225,.3)}tw-debugger .storylet-row:nth-child(2n){background-color:rgba(152,231,204,.3)}tw-debugger .storylet-row.storylet-closed{font-style:italic;background-color:#fff}tw-debugger .storylet-row.storylet-closed:nth-child(2n){background-color:#e6e6e6}tw-debugger .storylet-row.storylet-closed>:not(.storylet-lambda){opacity:.6}.storylet-error tw-debugger .storylet-row{background-color:rgba(230,101,204,.3)}.storylet-error tw-debugger .storylet-row:nth-child(2n){background-color:rgba(237,145,219,.3)}tw-debugger .storylet-row .storylet-name,tw-debugger .storylet-row .storylet-value{display:inline-block;width:50%}tw-debugger .storylet-row .storylet-lambda{font-family:monospace;font-size:1rem;white-space:pre-wrap;overflow-wrap:anywhere}tw-debugger.theme-dark .storylet-row.storylet-closed{background-color:#000}tw-debugger.theme-dark .storylet-row.storylet-closed:nth-child(2n){background-color:#212121}tw-debugger .tabs{padding-bottom:.5em}tw-debugger .tab{border-radius:0px 0px .5em .5em;border-top:none;top:-2px}tw-debugger .resizer-h{position:absolute;height:14em;border-left:2px solid #999;border-right:2px solid #999;top:10px;left:4px;width:8px;cursor:ew-resize}tw-debugger.theme-dark .resizer-h{border-color:rgba(0,0,0,0) #666}tw-debugger .resizer-v{position:absolute;height:8px;border-top:2px solid #999;border-bottom:2px solid #999;margin-bottom:4px;top:4px;left:10px;width:95%;cursor:ns-resize;box-sizing:border-box}tw-debugger.theme-dark .resizer-v{border-color:#666 rgba(0,0,0,0)}tw-debugger mark{color:inherit;background-color:rgba(101,230,230,.3) !important}tw-dialog{z-index:999997;border:#fff solid 2px;padding:2em;color:#fff;background-color:#000;display:block}@media(min-width: 576px){tw-dialog{max-width:50vw}}tw-dialog input[type=text]{font-size:inherit;width:100%;border:solid #fff !important}tw-dialog-links{text-align:right;display:-ms-flexbox;display:flex;-ms-flex-pack:end;justify-content:flex-end}tw-backdrop{z-index:999996;position:fixed;top:0;left:0;right:0;bottom:0;background-color:rgba(0,0,0,.8);display:-ms-flexbox;display:flex;-ms-flex-align:center;align-items:center;-ms-flex-pack:center;justify-content:center}tw-backdrop~tw-backdrop{display:none}tw-link,.enchantment-link{cursor:pointer;color:#4169e1;font-weight:bold;text-decoration:none;transition:color .2s ease-in-out}tw-passage [style^=color] tw-link:not(:hover),tw-passage [style*=" color"] tw-link:not(:hover),tw-passage [style^=color][hover=true] tw-link:hover,tw-passage [style*=" color"][hover=true] tw-link:hover,tw-passage [style^=color] .enchantment-link:not(:hover),tw-passage [style*=" color"] .enchantment-link:not(:hover),tw-passage [style^=color][hover=true] .enchantment-link:hover,tw-passage [style*=" color"][hover=true] .enchantment-link:hover{color:inherit}tw-link:hover,.enchantment-link:hover{color:#00bfff}tw-link:active,.enchantment-link:active{color:#dd4b39}.visited{color:#6941e1}tw-passage [style^=color] .visited:not(:hover),tw-passage [style*=" color"] .visited:not(:hover),tw-passage [style^=color][hover=true] .visited:hover,tw-passage [style*=" color"][hover=true] .visited:hover{color:inherit}.visited:hover{color:#e3e}tw-broken-link{color:#933;border-bottom:2px solid #933;cursor:not-allowed}tw-passage [style^=color] tw-broken-link:not(:hover),tw-passage [style*=" color"] tw-broken-link:not(:hover),tw-passage [style^=color][hover=true] tw-broken-link:hover,tw-passage [style*=" color"][hover=true] tw-broken-link:hover{color:inherit}tw-link.enchantment-mouseover,.link.enchantment-mouseover,tw-expression.enchantment-mouseover>tw-link{color:inherit;font-weight:inherit;transition:none;cursor:inherit;border-bottom:2px dashed #999}tw-link.enchantment-mouseover:hover,tw-link.enchantment-mouseover:active,.link.enchantment-mouseover:hover,.link.enchantment-mouseover:active,tw-expression.enchantment-mouseover>tw-link:hover,tw-expression.enchantment-mouseover>tw-link:active{color:inherit}tw-link.enchantment-mouseover.enchantment-button,.link.enchantment-mouseover.enchantment-button,tw-expression.enchantment-mouseover>tw-link.enchantment-button{border-style:dashed}tw-link.enchantment-mouseout,.link.enchantment-mouseout,tw-expression.enchantment-mouseout>tw-link{color:inherit;font-weight:inherit;transition:none;cursor:inherit;border:rgba(64,149,191,.6) 1px solid;border-radius:.2em}tw-link.enchantment-mouseout:hover,tw-link.enchantment-mouseout:active,.link.enchantment-mouseout:hover,.link.enchantment-mouseout:active,tw-expression.enchantment-mouseout>tw-link:hover,tw-expression.enchantment-mouseout>tw-link:active{color:inherit}tw-link.enchantment-mouseout:hover,.link.enchantment-mouseout:hover,tw-expression.enchantment-mouseout>tw-link:hover{background-color:rgba(175,197,207,.75);border:rgba(0,0,0,0) 1px solid}tw-link.enchantment-dblclick,.link.enchantment-dblclick,tw-expression.enchantment-dblclick>tw-link{color:inherit;font-weight:inherit;transition:none;cursor:inherit;cursor:pointer;border:2px solid #999;border-radius:0}tw-link.enchantment-dblclick:hover,tw-link.enchantment-dblclick:active,.link.enchantment-dblclick:hover,.link.enchantment-dblclick:active,tw-expression.enchantment-dblclick>tw-link:hover,tw-expression.enchantment-dblclick>tw-link:active{color:inherit}tw-link.enchantment-dblclick:active,.link.enchantment-dblclick:active,tw-expression.enchantment-dblclick>tw-link:active{background-color:#999}tw-link.enchantment-button,.link.enchantment-button,.enchantment-button:not(.link) tw-link,.enchantment-button:not(.link) .link{border-radius:16px;border-style:solid;border-width:2px;text-align:center;padding:0px 8px;display:block}.enchantment-button{display:block}.enchantment-clickblock{cursor:pointer;width:100%;height:100%;display:block}.enchantment-clickblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;color:rgba(65,105,225,.5);transition:color .2s ease-in-out}.enchantment-clickblock>:not(tw-enchantment):hover::after{color:rgba(0,191,255,.5)}.enchantment-clickblock>:not(tw-enchantment):active::after{color:rgba(222,78,59,.5)}.enchantment-clickblock>:not(tw-enchantment)::after{box-shadow:inset 0 0 0 .5vmax}.enchantment-clickblock>tw-passage::after,.enchantment-clickblock>tw-sidebar::after{box-shadow:0 0 0 .5vmax}.enchantment-mouseoverblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;border:2px dashed #999}.enchantment-mouseoutblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;border:rgba(64,149,191,.6) 2px solid}.enchantment-mouseoutblock:hover>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;background-color:rgba(175,197,207,.75);border:rgba(0,0,0,0) 2px solid;border-radius:.2em}.enchantment-dblclickblock>:not(tw-enchantment)::after{content:"";width:100%;height:100%;top:0;left:0;display:block;box-sizing:border-box;position:absolute;pointer-events:none;cursor:pointer;border:2px solid #999}tw-dialog-links{padding-top:1.5em}tw-dialog-links tw-link{border-radius:16px;border-style:solid;border-width:2px;text-align:center;padding:0px 8px;display:block;display:inline-block}html{margin:0;height:100%;overflow-x:hidden}*,:before,:after{position:relative;box-sizing:inherit}body{margin:0;height:100%}tw-storydata{display:none}tw-story{display:-ms-flexbox;display:flex;-ms-flex-direction:column;flex-direction:column;font:100% Georgia,serif;box-sizing:border-box;width:100%;min-height:100%;font-size:1.5em;line-height:1.5em;padding:5% 5%;overflow:hidden;background-color:#000;color:#fff}tw-story [style*=content-box] *{box-sizing:border-box}@media(min-width: 576px){tw-story{padding:5% 20%}}tw-story tw-consecutive-br{display:block;height:1.6ex;visibility:hidden}tw-story select{background-color:rgba(0,0,0,0);font:inherit;border-style:solid;padding:2px}tw-story select:not([disabled]){color:inherit}tw-story textarea{resize:none;background-color:rgba(0,0,0,0);font:inherit;color:inherit;border-style:none;padding:2px}tw-story input[type=text]{background-color:rgba(0,0,0,0);font:inherit;color:inherit;border-style:none}tw-story input[type=checkbox]{transform:scale(1.5);margin:0 .5em .5em .5em;vertical-align:middle}tw-story tw-noscript{animation:appear .8s}tw-passage{display:block}tw-sidebar{text-align:center;display:-ms-flexbox;display:flex;-ms-flex-pack:justify;justify-content:space-between}@media(min-width: 576px){tw-sidebar{left:-5em;width:3em;position:absolute;-ms-flex-direction:column;flex-direction:column}tw-enchantment[style*=width]>tw-sidebar{width:inherit}}tw-icon{display:inline-block;margin:.5em 0;font-size:66px;font-family:"Verdana",sans-serif}tw-icon[alt]{opacity:.2;cursor:pointer}tw-icon[alt]:hover{opacity:.4}tw-icon[data-label]::after{font-weight:bold;content:attr(data-label);font-size:20px;bottom:-20px;left:-50%;white-space:nowrap}tw-meter{display:block}tw-hook:empty,tw-expression:empty{display:none}tw-error{display:inline-block;border-radius:.2em;padding:.2em;font-size:1rem;cursor:help;white-space:pre-wrap}tw-error.error{background-color:rgba(223,58,190,.6);color:#fff}tw-error.warning{background-color:rgba(223,140,58,.6);color:#fff;display:none}.debug-mode tw-error.warning{display:inline}tw-error-explanation{display:block;font-size:.8rem;line-height:1rem}tw-open-button,tw-folddown{cursor:pointer;line-height:0em;border-radius:4px;border:1px solid rgba(255,255,255,.5);font-size:.8rem;margin:0 .2rem;padding:3px;white-space:pre}tw-folddown::after{content:"▶"}tw-folddown.open::after{content:"▼"}tw-open-button[replay]{display:none}tw-error tw-open-button,tw-eval-replay tw-open-button{display:inline !important}tw-open-button::after{content:attr(label)}tw-notifier{border-radius:.2em;padding:.2em;font-size:1rem;background-color:rgba(223,182,58,.4);display:none}.debug-mode tw-notifier{display:inline}tw-notifier::before{content:attr(message)}tw-colour{border:1px solid #000;display:inline-block;width:1em;height:1em}tw-enchantment:empty{display:none}h1{font-size:3em}h2{font-size:2.25em}h3{font-size:1.75em}h1,h2,h3,h4,h5,h6{line-height:1em;margin:.3em 0 .6em 0}pre{font-size:1rem;line-height:initial}small{font-size:70%}big{font-size:120%}mark{color:rgba(0,0,0,.6);background-color:#ff9}ins{color:rgba(0,0,0,.6);background-color:rgba(255,242,204,.5);border-radius:.5em;box-shadow:0em 0em .2em #ffe699;text-decoration:none}center{text-align:center;margin:0 auto;width:60%}blink{text-decoration:none;animation:fade-in-out 1s steps(1, end) infinite alternate}tw-align{display:block}tw-columns{display:-ms-flexbox;display:flex;-ms-flex-direction:row;flex-direction:row;-ms-flex-pack:justify;justify-content:space-between}.transition-in{animation:appear 0ms step-start}.transition-out{animation:appear 0ms step-end}[data-t8n^=dissolve].transition-in,[data-t8n=fade].transition-in{animation:appear .8s}[data-t8n^=dissolve].transition-out,[data-t8n=fade].transition-out{animation:appear .8s reverse}[data-t8n^=shudder].transition-in{display:inline-block !important;animation:shudder-in .8s}[data-t8n^=shudder].transition-out{display:inline-block !important;animation:shudder-in .8s reverse}[data-t8n^=rumble].transition-in{display:inline-block !important;animation:rumble-in .8s}[data-t8n^=rumble].transition-out{display:inline-block !important;animation:rumble-in .8s reverse}[data-t8n^=pulse].transition-in{animation:pulse .8s;display:inline-block !important}[data-t8n^=pulse].transition-out{animation:pulse .8s reverse;display:inline-block !important}[data-t8n^=zoom].transition-in{animation:zoom-in .8s;display:inline-block !important}[data-t8n^=zoom].transition-out{animation:zoom-in .8s reverse;display:inline-block !important}[data-t8n^=blur].transition-in{animation:blur .8s;display:inline-block !important}[data-t8n^=blur].transition-out{animation:blur .8s reverse;display:inline-block !important}[data-t8n^=slideleft].transition-in{animation:slide-left .8s;display:inline-block !important}[data-t8n^=slideleft].transition-out{animation:slide-right .8s reverse;display:inline-block !important}[data-t8n^=slideright].transition-in{animation:slide-right .8s;display:inline-block !important}[data-t8n^=slideright].transition-out{animation:slide-left .8s reverse;display:inline-block !important}[data-t8n^=slideup].transition-in{animation:slide-up .8s;display:inline-block !important}[data-t8n^=slideup].transition-out{animation:slide-down .8s reverse;display:inline-block !important}[data-t8n^=slidedown].transition-in{animation:slide-down .8s;display:inline-block !important}[data-t8n^=slidedown].transition-out{animation:slide-up .8s reverse;display:inline-block !important}[data-t8n^=fadeleft].transition-in{animation:fade-left .8s;display:inline-block !important}[data-t8n^=fadeleft].transition-out{animation:fade-right .8s reverse;display:inline-block !important}[data-t8n^=faderight].transition-in{animation:fade-right .8s;display:inline-block !important}[data-t8n^=faderight].transition-out{animation:fade-left .8s reverse;display:inline-block !important}[data-t8n^=fadeup].transition-in{animation:fade-up .8s;display:inline-block !important}[data-t8n^=fadeup].transition-out{animation:fade-down .8s reverse;display:inline-block !important}[data-t8n^=fadedown].transition-in{animation:fade-down .8s;display:inline-block !important}[data-t8n^=fadedown].transition-out{animation:fade-up .8s reverse;display:inline-block !important}[data-t8n^=flicker].transition-in{animation:flicker .8s}[data-t8n^=flicker].transition-out{animation:flicker .8s reverse}
 </style>
 </head>
 <body>
-<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Ostrich.</tw-noscript></noscript></tw-story>
-<tw-storydata name="Ostrich" startnode="1" creator="Twine" creator-version="2.9.2" format="Harlowe" format-version="3.3.9" ifid="2FC2E6DC-3F73-496A-9D6E-51E7E38B2809" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css"></style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="the last thing" tags="" position="600,300" size="100,100">... on this of all mornings, the last thing anyone wants to see is an [[ostrich]]
-.
+<tw-story><noscript><tw-noscript>JavaScript needs to be enabled to play Soul Swap.</tw-noscript></noscript></tw-story>
+<tw-storydata name="Soul Swap" startnode="1" creator="Twine" creator-version="2.9.2" format="Harlowe" format-version="3.3.9" ifid="8D6C799B-611D-4B1F-9D5C-EB9C125D284C" options="" tags="" zoom="1" hidden><style role="stylesheet" id="twine-user-stylesheet" type="text/twine-css">tw-passage {
+color:white;
+}
+tw-story[tags~="lasers"] {
+ background-image:url("https://static.vecteezy.com/system/resources/thumbnails/021/208/015/original/fast-moving-blue-laser-beams-technology-motion-background-animation-full-hd-and-a-seamless-loop-video.jpg");
+ background-size:cover;
+}
+
+tw-story[tags~="cautious"] {
+ background-image:url("https://i.pinimg.com/736x/e2/90/1f/e2901fce2c29d6e412cafc686269ade6.jpg");
+ background-size:cover;
+}
+tw-story[tags~="deep-blue"] {
+ background-image:url("https://en.idei.club/uploads/posts/2023-06/thumbs/1686291047_en-idei-club-p-royal-blue-background-dizain-1.jpg");
+ background-size:cover;
+}
+
+tw-story[tags~="dusty"] {
+ background-image:url("https://img.freepik.com/premium-photo/abstract-watercolor-background-texture-paper-can-be-used-as-desktop-wallpaper-watercolor-light-brown-dust-autumn-abstract-background-ai-generated_538213-46376.jpg");
+ background-size:cover;
+}
+
+tw-story[tags~="emergency"] {
+ background-image:url("https://t3.ftcdn.net/jpg/01/92/70/22/360_F_192702213_FPZ4HDomU3eLzpK2UY0PC0JLXc4E2T78.jpg");
+ background-size:cover;
+}
+
+tw-story[tags~="royal"] {
+ background-image:url("https://t3.ftcdn.net/jpg/03/11/16/14/360_F_311161460_0Uw0qieFHNarQfTU5OR9MKdYAETt13Rs.jpg");
+ background-size:cover;
+}
+
+tw-story[tags~="martin"] {
+ background-image:url("https://plus.unsplash.com/premium_photo-1675855291447-3266ba923327?fm=jpg&q=60&w=3000&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MXx8cmVkJTIwdmVsdmV0fGVufDB8fDB8fHww");
+ background-size:cover;
+}
+https://as2.ftcdn.net/v2/jpg/00/25/86/75/1000_F_25867544_sOZvs6eb7JbZdPiYRGnOG2X1npGHF9dy.jpg
+
+tw-story[tags~="sad"] {
+ background-image:url("https://images.pexels.com/photos/8892/pexels-photo.jpg?cs=srgb&dl=pexels-life-of-pix-8892.jpg&fm=jpg");
+ background-size:cover;
+}
+
+tw-story[tags~="confused"] {
+ background-image:url("https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTmpCDvZS2B9dJwNTFgxkxwvFkOMYAIQ0DQuw&s");
+ background-size:cover;
+}
+
+tw-story[tags~="intro"] {
+ background-image:url("https://mir-s3-cdn-cf.behance.net/project_modules/max_1200/469d3131932615.56673c0f4f8ee.png");
+ background-size:cover;
+}
+
+tw-story[tags~="hospital"] {
+ background-image:url("https://t3.ftcdn.net/jpg/01/67/59/48/360_F_167594893_dWtiBCm2kkQGeeIGcJSGKryKItZ8XAI1.jpg");
+ background-size:cover;
+}
+
+tw-story[tags~="luxury"] {
+ background-image:url("https://images.fineartamerica.com/images-medium-large-5/blue-glowing-background-light-brainmaster.jpg");
+ background-size:cover;
+}
+</style><script role="script" id="twine-user-script" type="text/twine-javascript"></script><tw-passagedata pid="1" name="The Proposal" tags="intro" position="575,0" size="100,100">(text-colour:white)+(bg:black)[=
+As you step out of your cramped apartment into the neon-lit streets of New Neo York, the towering holograms above remind you of the latest craze sweeping the nation: Soul Swap. The advertisements promise a revolutionary experience, a chance to walk in someone else&#39;s shoes—literally. You&#39;ve seen the technology used for everything from therapy sessions where trauma survivors confront their fears in stronger bodies, to exotic vacations where thrill-seekers inhabit the forms of extreme athletes.
+
+But as you make your way through the crowded sidewalks, dodging the sleek autonomous vehicles of the upper class, you can&#39;t help but notice the darker side of this technological marvel. Whispers in the underground forums speak of wealthy elites using Soul Swap to escape legal consequences, swapping into the bodies of unsuspecting lower-class citizens just before raids or arrests. The rich treat it as a game, a way to slum it in the lower levels of the city without any real risk to their status or freedom.
+
+You&#39;re intimately familiar with the struggles of life in this dystopian society. As a single parent working multiple grueling jobs, you barely scrape by in a world where the gap between the haves and have-nots has become an unbridgeable chasm. Your child&#39;s needs, the mounting bills, and the constant fear of eviction weigh heavily on your mind as you clock in for yet another shift at the megacorp factory.
+
+It&#39;s during one of these mind-numbing shifts that you receive an unexpected message on your outdated comm device. A sleek, corporate logo flashes across the screen—Soul Swap Inc. The message is brief but tantalizing: you are offered a large sum of money to swap bodies with a wealthy individual, Martin, for 48 hours. An opportunity for a significant payout in exchange for a mere 48 hours of your time. As you read the details, your heart races. This could be the chance you&#39;ve been waiting for, a way to finally get ahead in a system designed to keep you down and help your struggling family. But as your finger hovers over the &quot;Accept&quot; button, a nagging doubt creeps in. In a world where nothing comes without a price, what hidden costs might this opportunity conceal? 
+
+(text-colour:lime)[&#39;&#39;[[Call]]&#39;&#39; the number provided in the invitation.]</tw-passagedata><tw-passagedata pid="2" name="Press 1" tags="hospital" position="600,250" size="100,100">
+(text-colour:black)+(bg:white)[
+As the day of the body swap appointment arrives, your heart races with a mixture of anticipation and trepidation. The Soul Swap facility is a sleek, futuristic building that stands in stark contrast to the crumbling infrastructure of your neighborhood.
+
+&lt;img src = &quot;https://meconstructionnews.com/wp-content/uploads/2017/02/Childrens-Hospital-Kuwait-.jpg&quot;&gt;
+
+Inside, you&#39;re greeted by a team of technicians in pristine white uniforms, their faces a mask of professional detachment. They guide you through a series of preparations, explaining the process in clinical terms that do little to calm your nerves.
+
+As you lie down on the transfer pod, your thoughts drift to your child, to the life you&#39;re hoping to improve. 
+
+&lt;img src = &quot;https://i0.wp.com/medhealth.info/wp-content/uploads/2024/01/c923ba71-cfb2-43d6-b095-b38c0d2d1687.jpeg?resize=1024%2C600&amp;ssl=1&quot;
+width = &quot;770&quot; height = &quot;500&quot;&gt;
 
 
-&lt;!--Comment Text--&gt;</tw-passagedata><tw-passagedata pid="2" name="ostrich" tags="" position="400,500" size="100,100">But here it is, maybe slightly larger than life, in the middle of your Auntie Integer&#39;s sunroom. A flightless bird with eyes the size of [[gumballs]].
+The last thing you see is a countdown on a holographic display above you. 
+&lt;img src = &quot;https://media.istockphoto.com/id/156352082/photo/surgeons-standing-above-of-the-patient-before-surgery.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=cdtZgQv78d_He1Yg8MZx-fi2k93emkG3CUcYmWW_AzQ=&quot;
+width = &quot;770&quot; height = &quot;500&quot;&gt;
+Then, [[darkness]]. 
+]</tw-passagedata><tw-passagedata pid="3" name="Press 2" tags="confused" position="775,250" size="100,100">As you press 2 on your device, a flood of questions rushes through your mind. The Soul Swap representative&#39;s holographic image flickers to life, their polished smile a stark contrast to your dingy surroundings.
+
+&quot;I&#39;m glad you&#39;re interested in learning more,&quot; the rep says smoothly. &quot;What would you like to know?&quot;
+
+You start with the basics, asking about the company&#39;s reputation and safety record. The representative launches into a well-rehearsed spiel about Soul Swap Inc.&#39;s stellar track record and cutting-edge technology. However, as they speak, you notice a slight hesitation in their voice.
+
+Pressing further, you inquire about any potential risks or side effects. The rep&#39;s smile falters for a moment before they admit, &quot;Like any groundbreaking technology, there have been... isolated incidents. A few lawsuits, nothing major. Just some clients experiencing temporary disorientation or mild identity confusion after extended swaps.&quot;
+
+Your brow furrows as you process this information. You ask for more details about these lawsuits, and the rep reluctantly provides a sanitized version of events. There was a case where a swap lasted longer than intended, another where someone claimed they retained memories from their host body. All settled out of court, of course.
+
+As the conversation continues, you learn that while Soul Swap Inc. is indeed a reputable company with a strong presence in the market, it&#39;s not without its controversies. Whispers of ethical concerns and exploitation have dogged the corporation, but they&#39;ve managed to stay just within the bounds of legality.
+
+The representative, sensing your hesitation, quickly pivots to emphasize the potential benefits. &quot;Think of the opportunities this could open up for you and your family,&quot; they say, their voice taking on a sympathetic tone. &quot;Forty-eight hours in the life of luxury, and you could clear all your debts, maybe even start a college fund for your child.&quot;
+
+You find yourself torn. The risks are real, but so is the crushing weight of your current circumstances. The decision still lies before you, now colored by this new information. Do you take the plunge, hoping that the potential rewards outweigh the risks? Or do you walk away, unwilling to gamble with something as precious as your very consciousness?
+As you ponder your choice, you can&#39;t help but wonder: in a world where even our identities can be commodified, what price are we truly willing to pay for a chance at a better life?
+
+[[call the number again]] 
+[[find more]] info, you&#39;re still not sure. </tw-passagedata><tw-passagedata pid="4" name="Press 3" tags="sad" position="375,300" size="100,100">As you decline the Soul Swap offer, a mixture of relief and regret washes over you. The tantalizing promise of financial stability slips through your fingers, but you can&#39;t shake the feeling that you&#39;ve dodged a bullet. You return to your grueling routine, determined to find another way to improve your family&#39;s situation.
+
+Over the next few weeks, you throw yourself into a frenzy of activity. During the day, you pick up extra shifts at the factory, pushing your body to its limits. At night, you scour the darknet for side gigs, taking on risky data courier jobs and participating in underground augmented reality games for meager payouts. Your child barely sees you, but you console yourself with the thought that it&#39;s all for their future.
+
+Despite your efforts, the bills continue to pile up. Your landlord, a hulking cyborg with a penchant for physical &quot;reminders,&quot; starts making increasingly threatening visits. The medication your child needs to manage their chronic illness becomes scarcer and more expensive by the day. You find yourself cutting corners on food and necessities, the weight of your responsibilities crushing you more with each passing moment.
+
+One particularly bleak evening, as you&#39;re trudging home from another exhausting shift, you notice a sleek autonomous vehicle following you. It pulls up alongside you, and the tinted window slides down to reveal a familiar face—the Soul Swap representative shown in the profile picture of the message that had been sent to you before. Their smile is both warm and predatory as they speak:
+
+&quot;I couldn&#39;t help but notice you&#39;ve been having a rough time lately. Our offer still stands, you know. In fact, we&#39;ve sweetened the deal. Forty-eight hours in someone else&#39;s shoes, and all your problems disappear. Think about your child, about their future. Sometimes, we have to make difficult choices for those we love.&quot;
+
+As much as you want to refuse, to turn away and continue your uphill battle, you find yourself wavering. The thought of your child&#39;s pale face, of the eviction notice taped to your door, of the countless sleepless nights ahead—it all comes crashing down on you at once. With a heavy heart and a trembling hand, you reach for the contract the representative is holding out.
+
+&quot;I&#39;ll do it,&quot; you say, your voice barely above a whisper. &quot;For my family.&quot;
+
+As you sign your name, you can&#39;t help but wonder: In a world that leaves you no real choice, can any decision truly be called your own?
+
+&quot;Great, thank you so much! You have made the right decision. Make sure to call the original number sent to you to confirm this in the system. We&#39;ll be in touch soon to set up your transition.&quot;
+
+You sigh and look back through your texts to [(text-colour:yellow)[[call the number again]]. ]
+
+</tw-passagedata><tw-passagedata pid="5" name="experience" tags="martin" position="625,550" size="100,100">&lt;iframe width=&quot;560&quot; height=&quot;315&quot; src=&quot;https://www.youtube.com/embed/PCGgYPqZYU0?si=FoJq9YgvIIDdsWj3&quot; title=&quot;YouTube video player&quot; frameborder=&quot;0&quot; allow=&quot;accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share&quot; referrerpolicy=&quot;strict-origin-when-cross-origin&quot; allowfullscreen&gt;&lt;/iframe&gt;
+
+As you begin to explore Martin&#39;s world, the contrast between your previous life and his becomes increasingly apparent. Every step you take is on plush carpets or polished marble floors. The walk-in closet alone is larger than your entire apartment, filled with designer clothes and accessories worth more than you&#39;ve earned in your lifetime. But amidst the luxury, something feels off.
+
+Martin&#39;s staff greets you with a coldness that seems at odds with their impeccable service. Their eyes hold a mixture of fear and resentment, quickly masked behind professional smiles. As you navigate through Martin&#39;s daily routine, you stumble upon clues that suggest his life is far more complicated than you imagined. His personal AI assistant keeps flagging encrypted messages with urgent priority levels. While browsing his finances, you discover hidden accounts with astronomical sums, their purposes obscured behind layers of corporate jargon.
+
+&lt;img src= &quot;https://img.freepik.com/premium-photo/computer-monitor-displaying-spreadsheet_974629-340332.jpg&quot; 
+width = &quot;770&quot; height = &quot;500&quot;&gt;
+
+Most unsettling are the frequent mentions of &quot;enemies&quot; in Martin&#39;s personal logs and the paranoid security measures in place throughout his penthouse. It becomes clear that Martin&#39;s wealth comes with a heavy price – one of constant vigilance and mistrust. As you stand in his high-tech home office, surrounded by evidence of a life built on secrets and power plays, you&#39;re faced with a choice. Do you indulge in the luxury you&#39;ve been denied your whole life, dive deeper into Martin&#39;s mysterious dealings, or proceed with caution, mindful of the ticking clock on your borrowed existence?
+
+[[Enjoy the luxury]] 
+[[Investigate Martin’s dealings]]
+[[Stay cautious]]</tw-passagedata><tw-passagedata pid="6" name="Enjoy the luxury" tags="royal" position="850,600" size="100,100">&#39;&#39;(text-colour:black)[
+
+As you embrace Martin&#39;s lavish lifestyle, a world of opulence and privilege unfolds before you. The initial shock of your new surroundings quickly gives way to a heady rush of excitement and possibility. You find yourself swept up in a whirlwind of exclusive events, each more extravagant than the last.
+
+One evening, you&#39;re whisked away in a sleek autonomous vehicle to a gala at the city&#39;s most prestigious art museum. As you glide through the grand entrance, adorned in a bespoke suit that costs more than your old apartment, you can&#39;t help but marvel at how effortlessly you blend in with the elite crowd. The champagne flows freely, and you find yourself engaged in stimulating conversations about art, politics, and technology with some of the most influential people in the world.
+
+The freedom to indulge in every whim is intoxicating. You spend days exploring Martin&#39;s vast estate, from the state-of-the-art home gym to the private cinema. You take his luxury yacht out for a spin, marveling at how easily you can escape the confines of the city. The constant stream of new experiences and pleasures makes it easy to push aside the nagging doubts and strange inconsistencies you&#39;ve noticed.
+
+As the days pass, you begin to ignore the cryptic messages that pop up on Martin&#39;s devices, dismissing them as unimportant business matters. You wave off the tense, whispered conversations among the staff when they think you&#39;re not listening. Even the occasional glimpse of heavily armed security personnel patrolling the grounds at night doesn&#39;t seem to warrant much concern in your champagne-soaked haze of contentment. 
+]
+
+&lt;img src = &quot;https://media.istockphoto.com/id/1223077593/video/friends-celebrating-with-wine-at-party.jpg?s=640x640&amp;k=20&amp;c=KAqyBZkJNdhhZoJ3zhUz7TeLfdmln97ucB0-5AdYEGs=&quot;
+width = &quot;720&quot; height = &quot;550&quot;&gt;
+
+&#39;&#39;(text-colour:white)[
+&#39;&#39;However, your carefree indulgence in Martin&#39;s world comes to an abrupt halt one seemingly ordinary afternoon. As you&#39;re lounging by the infinity pool, sipping an expertly crafted cocktail, a series of explosions rocks the compound. Alarms blare, and panic erupts among the staff. In an instant, your borrowed paradise transforms into a chaotic nightmare. As you scramble to make sense of the situation, you realize that your delay in uncovering the truth about Martin&#39;s life may have dire consequences.
+
+&lt;img src = &quot;https://res.cloudinary.com/review-journal/image/upload/v1607928462/Top-Vegas-Deadly-Apartment-Fire.jpg&quot;
+width = &quot;770&quot; height = &quot;500&quot;&gt;
+
+Suddenly, the luxury that seemed so alluring now feels like a gilded cage, and you find yourself longing for the simplicity of your old life. As armed intruders storm the estate, you&#39;re faced with a stark realization: enjoying the perks of Martin&#39;s existence has left you woefully unprepared for its dangers. Now, you must navigate this unexpected threat with nothing but your wits and the fragments of information you&#39;ve gleaned from your time in Martin&#39;s shoes.
+
+Everything is not going according to (text-colour:red)[[plan]].&#39;&#39;]</tw-passagedata><tw-passagedata pid="7" name="Investigate Martin’s dealings" tags="deep-blue" position="525,675" size="100,100">As you choose to investigate Martin&#39;s dealings, your natural curiosity and survival instincts kick in. You begin by carefully exploring Martin&#39;s luxurious penthouse, paying close attention to the locked rooms and encrypted files on his personal devices.
+
+Using Martin&#39;s high-level access, you start digging into his business records and personal communications. What you uncover is far more sinister than you could have imagined. 
+
+&lt;img src = &quot;https://cdn.prod.website-files.com/66291f905d6042359a1b15a7/66291f905d6042359a1b1854_SmartAudit_laptop_view%201338x840.webp&quot;
+width = &quot;770&quot; height = &quot;500&quot;&gt;
+
+Hidden behind layers of shell companies and offshore accounts, you find evidence of widespread fraud, money laundering, and even connections to organized crime.
+
+As you delve deeper, you stumble upon a series of encrypted messages between Martin and the Soul Swap company. These communications hint at a long-standing arrangement, where Martin has used the body-swapping technology multiple times to evade legal consequences. You discover records of at least three previous &quot;swaps&quot; coinciding with major financial investigations or pending indictments against Martin&#39;s companies.
+&lt;img src = &quot;https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRXgVjfYgpMGshNWFtLEIp7SSnE-UukwIdvG8M7cuKQBhcjeZVOLEW4m9qChc-yfyXt3-8&amp;usqp=CAU&quot;&gt;
+Your heart races as you piece together the implications. Martin isn&#39;t just a wealthy businessman looking for a thrill; he&#39;s a serial body-swapper who uses the technology to escape justice, leaving innocent people to face the consequences of his actions.
+
+As you&#39;re processing this information, you notice strange activity among Martin&#39;s staff. They seem to be preparing for something, moving with an urgency that sets you on edge. You overhear snippets of conversation about &quot;containment protocols&quot; and &quot;asset protection.&quot;
+
+Just as you&#39;re about to dig further into a particularly suspicious set of financial records, your comm device suddenly buzzes. It&#39;s a message from Soul Swap, marked with an urgent alert icon. Your pulse quickens as you reach for the device, knowing that whatever this message contains could change everything.
+&lt;img src = &quot;https://cdn.kqed.org/wp-content/uploads/sites/10/2023/10/GettyImages-1503223451-1020x680.jpg&quot;
+width = &quot;770&quot; height = &quot;550&quot;&gt;
+Try to read the (text-colour:red)+(bg:black)[[text]]</tw-passagedata><tw-passagedata pid="8" name="Stay cautious" tags="cautious" position="400,575" size="100,100">As you choose to remain cautious in Martin&#39;s world, your instincts from years of surviving in the city&#39;s underbelly kick in. You decide to blend in, quietly observing your surroundings while trying not to draw attention to yourself. The opulence of Martin&#39;s life is overwhelming, but you resist the urge to indulge, knowing that every luxury could be a potential trap.
+&lt;img src = &quot;https://www.officelovin.com/wp-content/uploads/2018/04/true-x-nyc-office-1.jpg&quot;
+width = &quot;770&quot; height = &quot;500&quot;&gt;
+You navigate through Martin&#39;s daily routine with careful precision, paying close attention to the behavior of his staff and associates. Their cold demeanor and furtive glances don&#39;t escape your notice. You catch snippets of hushed conversations that abruptly stop when you enter a room, and you notice how certain areas of the penthouse seem off-limits, even to Martin himself.
+
+As days pass, you begin to piece together a troubling picture. Martin&#39;s empire seems built on more than just business acumen – there are hints of illegal activities, secret alliances, and potential enemies lurking in the shadows. You keep your distance from Martin&#39;s inner circle, feigning disinterest or fatigue to avoid prolonged interactions.
+
+However, despite your best efforts to remain unnoticed, you find yourself inexorably drawn into the dangerous undercurrents of Martin&#39;s world. On what seems like an ordinary afternoon, you&#39;re suddenly thrust into a chaotic situation.
+
+A series of explosions rocks the compound, shattering the carefully maintained facade of control. Alarms blare, and panic erupts among the staff. Martin&#39;s head of security bursts into the room, his face a mask of urgency and barely contained fear.
+&lt;img src = &quot;https://res.cloudinary.com/review-journal/image/upload/v1607928462/Top-Vegas-Deadly-Apartment-Fire.jpg&quot;
+width = &quot;770&quot; height = &quot;500&quot;&gt;
+
+&quot;Sir,&quot; he shouts, &quot;we need to get you to the safe room immediately. They&#39;ve breached the outer defenses!&quot;
+
+As you&#39;re hurried through the mansion&#39;s winding corridors, your mind races. Your cautious approach has given you some insights, but you realize you&#39;re still woefully unprepared for the reality of Martin&#39;s life. The danger you sensed lurking beneath the surface has suddenly erupted into plain view.
+&lt;img src = &quot;https://img.freepik.com/premium-photo/team-security-guards-monitoring-cctv-cameras-surveillance-room-cctv-security-concept-futuristic-cybersecurity-workspace-team-security-professionals-working-together-ai-generated_538213-37351.jpg&quot;
+width = &quot;770&quot; height = &quot;500&quot;&gt;
+In the safe room, surrounded by banks of monitors displaying security feeds from around the estate, the true gravity of your situation becomes clear. This isn&#39;t just a random attack; it&#39;s a coordinated assault aimed specifically at Martin. The head of security, assuming you&#39;re Martin, begins rattling off information about rival corporations, industrial espionage, and something called &quot;Project Lazarus.&quot;
+
+Your cautious nature has helped you avoid some pitfalls, but now you find yourself at the center of a storm you don&#39;t fully understand. As the attackers draw closer to your location, you&#39;re faced with a series of critical choices. Your instincts for self-preservation are strong, but you lack the deep knowledge of Martin&#39;s world that might be crucial for survival.
+
+The luxury that surrounded you moments ago now feels like a distant memory as you grapple with the dangerous reality of Martin&#39;s life. Your decision to stay cautious has given you some advantages, but it&#39;s clear that in this world, even the most careful observer can&#39;t escape the consequences of Martin&#39;s choices.
+
+As the 48-hour mark approaches, but with some time still remaining, your comm device suddenly buzzes. It&#39;s a message from Soul Swap, marked with an urgent alert icon. 
+&lt;img src = &quot;https://cdn.kqed.org/wp-content/uploads/sites/10/2023/10/GettyImages-1503223451-1020x680.jpg&quot;
+width = &quot;770&quot; height = &quot;550&quot;&gt;
+Try to read the (text-colour:red)+(bg:black)[[text]]</tw-passagedata><tw-passagedata pid="9" name="text" tags="dusty" position="725,675" size="100,100">Your heart races as you glance at the screen, but before you can read its contents, Martin&#39;s head of security appears as if from nowhere, smoothly intercepting the device.
+&quot;I&#39;ll take care of that, sir,&quot; he says, his tone leaving no room for argument.
+&lt;img src = &quot;https://offdutyofficers.com/wp-content/uploads/2019/03/mobile-security-guard-service.jpeg&quot;
+width = &quot;770&quot; height = &quot;500&quot;&gt;
+In that moment, you make a split-second decision. Taking advantage of the guard&#39;s momentary distraction, you slip away into the crowded streets. Your instincts, honed by years of surviving in the city&#39;s underbelly, take over. You need to lie low, to figure out your next move without the watchful eyes of Martin&#39;s entourage.
+
+As you disappear into the urban maze, your mind races with questions. What was in that message? Why is Martin&#39;s security so intent on controlling your – his – communications? The city stretches out before you, a labyrinth of possibilities and dangers. You&#39;re a stranger in a familiar land, navigating a life that was never meant to be yours.
+&lt;img src = &quot;https://qph.cf2.quoracdn.net/main-qimg-387c924bc7bfc67d3de0245b63fc67e6-lq&quot;&gt;
+With nervous energy coursing through you, you decide to wait out the remaining time of the 48-hour swap period in anonymity. As the deadline approaches, you make your way back to the Soul Swap facility, hoping to return to your own body and put this surreal experience behind you.
+
+However, as you enter the sleek, futuristic building, you&#39;re immediately struck by the tense atmosphere. The staff, usually polished and professional, seem on edge, their smiles strained and eyes darting nervously. You&#39;re ushered into a transfer pod, similar to the one you entered two days ago. The technicians bustle around you, their movements hurried and uncertain.
+&lt;img src = &quot;https://us.123rf.com/450wm/visoot/visoot2307/visoot230702084/208619879-futuristic-hospital-room-medical-facilities-and-communication-network-medical-technology.jpg&quot;&gt;
+As the countdown begins, you [[close your eyes]]... </tw-passagedata><tw-passagedata pid="10" name="Confront the company" tags="deep-blue" position="575,950" size="100,100">As desperation and anger consume you, you storm into the Soul Swap headquarters, demanding answers. The sleek, futuristic lobby feels like a mockery of your predicament as you push past startled receptionists and security guards.
+&lt;img src = &quot;https://img.freepik.com/premium-photo/futuristic-tech-company-headquarters-lobby-innovation_706399-15982.jpg&quot;&gt;
+You finally confront a high-ranking representative, your borrowed voice booming through the executive floor. &quot;What have you done to me? Where&#39;s my body? Where&#39;s Martin?&quot; 
+
+The questions pour out, each one laced with fear and fury.
+
+The representative, a woman with a perfectly composed demeanor, calmly asks you to step into a private conference room. Once inside, her professional mask slips slightly, revealing a hint of concern – or is it guilt?
+
+&quot;Mr. Harrington,&quot; she begins, still addressing you as Martin, &quot;we understand your distress, but I assure you, Soul Swap bears no legal responsibility for your current situation.&quot;
+
+As she speaks, a holographic display materializes between you, showing the contract you signed before the swap. Key phrases are highlighted, expanding into dense paragraphs of legal jargon.
+&lt;img src = &quot;https://img.freepik.com/premium-photo/photo-hand-signing-contract-with-holographic-document-pen-icons-white-background-stock-p_980716-475768.jpg&quot;&gt;
+
+&quot;As you can see,&quot; she continues, her voice devoid of empathy, &quot;clause 17.3 clearly states that Soul Swap is not liable for any extended consciousness displacement resulting from user error or third-party interference.&quot;
+
+Your mind reels as you try to process the implications. &quot;User error? Third-party interference? What are you talking about?&quot;
+
+The representative&#39;s eyes narrow slightly. &quot;Mr. Harrington, surely you understand the... delicate nature of your personal affairs. Soul Swap provides a service, but we cannot be held accountable for how our clients choose to use it.&quot;
+
+As the conversation progresses, it becomes clear that the company is stonewalling you. They deflect your questions with legal terminology and vague assurances of &quot;ongoing investigations.&quot; The more you push, the more they retreat behind a wall of corporate doublespeak.
+
+You leave the Soul Swap building feeling even more lost and alone than before. The company&#39;s refusal to take responsibility has left you with no clear path forward. As you step back onto the bustling street, Martin&#39;s face reflected in every shiny surface, you realize that you&#39;re on your own in this nightmare – and the clock is ticking.
+&lt;img src = &quot;https://t3.ftcdn.net/jpg/06/00/00/32/360_F_600003269_jb7RMvwryQpHg08NNz0dEMA53NvUioTj.jpg&quot;&gt;
+
+Threaten to [[expose]] Soul Swap&#39;s unethical practices.
+[[Negotiate]] a new deal with the company.</tw-passagedata><tw-passagedata pid="11" name="Track down Martin" tags="martin" position="775,975" size="100,100">Determined to uncover the truth and reclaim your life, you begin a relentless investigation into Martin&#39;s last known whereabouts. You leverage Martin&#39;s resources, accessing his private records and communications, piecing together a trail that leads you into the city&#39;s shadowy underbelly.
+&lt;img src= &quot;https://theurbanactivist.com/wp-content/uploads/2020/03/Epidemic-of-loneliness.jpg&quot;
+width = &quot;770&quot; height = &quot;500&quot;&gt;
+Your search takes you through exclusive clubs hidden behind nondescript facades, where the elite gather to indulge in unimaginable luxuries. In these dimly lit rooms, you overhear whispers of a secret network – a underground market where the wealthy trade not just in goods and favors, but in bodies and identities.
+&lt;img src = &quot;https://image-tc.galaxy.tf/wijpeg-1kf0hufj559afkeqf0h0jwl87/roulette5.jpg&quot;
+width = &quot;770&quot; height = &quot;500&quot;&gt;
+Following a series of cryptic clues, you find yourself in an abandoned warehouse on the outskirts of the city.
+&lt;img src = &quot;https://cdn1.epicgames.com/ue/product/Screenshot/HighresScreenshot000014Kstripes-1920x1080-d5759c1d9383ac1ce14d7d95b8c5230c.jpg?resize=1&amp;w=1920&quot;
+width = &quot;770&quot; height = &quot;500&quot;&gt;
+The dilapidated exterior belies a high-tech interior, where you discover a clandestine body-swapping facility. Here, the rich and powerful come to escape their troubles, slipping into new identities as easily as changing clothes.
+&lt;img src = &quot;https://img.freepik.com/premium-photo/biological-laboratory-futuristic-scene-science-fiction-about-dystopian-future_115128-3162.jpg&quot;
+width = &quot;770&quot; height = &quot;500&quot;&gt;
+As you dig deeper, you uncover a horrifying truth: Martin is just one of many who use this technology to evade justice. Financial criminals, corrupt politicians, and even wanted murderers have all used body-swapping to disappear, leaving innocent people to face the consequences of their actions.
+
+Your investigation leads you to a startling revelation: Martin has likely swapped bodies again, discarding your original form like a used disguise. You find evidence suggesting he&#39;s now inhabiting the body of a young, unknown individual – a clean slate, free from the legal troubles closing in on him.
+&lt;img src = &quot;https://media.istockphoto.com/id/1408297848/photo/fingerprints-crime-investigation.jpg?s=612x612&amp;w=0&amp;k=20&amp;c=OCKbf9svWmhdZW64FpCP34ASpujHyoZsYq3b11G6brU=&quot;&gt;
+The enormity of the situation hits you like a physical blow. Not only is Martin gone, potentially lost in a sea of swapped identities, but your own body – your true self – may be lost forever. You&#39;re left standing in the heart of this illegal operation, the weight of your discovery pressing down on you.
+
+As alarms suddenly blare, signaling that your presence has been detected, you&#39;re faced with a crucial decision. 
+
+The choice before you is fraught with moral implications and unforeseen consequences. Whatever you decide, you know that your life – and potentially the lives of countless others – will never be the same.
 
 
-&lt;img src=&quot;https://discovery.sndimg.com/content/dam/images/discovery/fullset/2022/8/9/Ostrichland_04.jpg.rend.hgtvcom.1280.960.suffix/1660074558423.jpeg&quot;&gt;
+[[Infiltrate]] the underground body-swapping network
+Attempt to [[reclaim]] your original body
+</tw-passagedata><tw-passagedata pid="12" name="Go to the authorities" tags="cautious" position="375,950" size="100,100">With a heavy heart and trembling hands, you make your way to the nearest police station. The weight of Martin&#39;s body feels foreign as you climb the steps, your mind racing with how to explain your impossible situation.
+&lt;img src = &quot;https://i.pinimg.com/736x/ac/39/b3/ac39b3569dc5ba6f99db320034e01cef.jpg&quot;
+width = &quot;770&quot; height = &quot;500&quot;&gt;
+As you enter the precinct, the bustle of activity momentarily halts. Officers and civilians alike turn to stare, recognizing the face of one of the city&#39;s most prominent – and controversial – figures. You approach the desk sergeant, your borrowed voice shaky as you try to explain.
 
-&lt;img src=&quot;Images/ostrich3.png&quot; width=&quot;259&quot; height=&quot;300&quot; alt=&quot;ostrich3&quot;&gt;
+&quot;I... I need help. I&#39;m not who I appear to be. There&#39;s been a body swap, and I&#39;m trapped...&quot;
+The sergeant&#39;s expression shifts from surprise to suspicion. He signals to two nearby officers who quickly flank you. &quot;Mr. Harrington, why don&#39;t we continue this conversation in private?&quot;
+
+You&#39;re led to an interrogation room, the stark contrast between its utilitarian design and Martin&#39;s luxurious world not lost on you. A detective enters, her eyes sharp and assessing.
+&lt;img src = &quot;https://images.pond5.com/interrogation-room-detective-interrogating-suspect-footage-091787147_iconl.jpeg&quot;&gt;
+&quot;So, Mr. Harrington,&quot; she begins, her tone skeptical, &quot;you&#39;re claiming you&#39;re not actually Martin Harrington, but someone else trapped in his body due to a... body swap?&quot;
+
+As you desperately try to explain your situation, you can see the disbelief growing in the detective&#39;s eyes. She starts asking pointed questions about Martin&#39;s recent activities, his financial dealings, and ongoing investigations into his companies.
+
+&quot;It&#39;s awfully convenient,&quot; she says, leaning forward, &quot;that just as we&#39;re closing in on some rather questionable transactions, Martin Harrington suddenly claims he&#39;s not himself. Are you sure you&#39;re not just trying to avoid responsibility for your actions?&quot;
+
+Your heart sinks as you realize the authorities don&#39;t believe you. In fact, your plea for help has only made you look more suspicious. The detective continues her interrogation, and you find yourself trapped in a web of Martin&#39;s past actions and ongoing legal troubles.
+
+As the hours drag on, you begin to understand the true depth of your predicament. Not only are you stuck in a body that&#39;s not your own, but you&#39;re now entangled in a legal nightmare with no easy way out. The authorities, far from being your salvation, have become yet another threat in this bewildering new world you&#39;ve been thrust into.
+
+[[Cooperate]] with the investigation to prove your innocence
+Use Martin&#39;s resources to [[escape]] and start a new life
+</tw-passagedata><tw-passagedata pid="13" name="help your family" tags="" position="575,1600" size="100,100">Moral Compromise Ending:Jules continues living a double life, secretly supporting their family while pretending to be Martin, but the emotional toll grows over time.</tw-passagedata><tw-passagedata pid="14" name="Give up" tags="" position="800,1600" size="100,100">Corporate Victory Ending: Jules succumbs to the power of the corporate system and lives as Martin, but loses their sense of self.</tw-passagedata><tw-passagedata pid="15" name="call the number again" tags="" position="350,100" size="100,100">You take a deep breath and think about your child at home as the phone rings again. You hear the same message as before. 
+
+&quot;Hello, you have reach SoulSwap action line. If you have this number, it means you have been selected for a gold level opportunity body swap. You have a limited amount of time to accept or deny this request. There will be no penalty to you if you do not participate, but you will not receive the opportunity again. If you accept the offer, press 1. If you would like to ask more questions first, press 2. If you reject the offer, press 3.&quot;
+
+(text-colour:green)[[Press 1]], Accept the offer immediately, you need this. 
+
+(text-colour:red)[~~Press 2, Ask more questions, you&#39;re not sure if this is worth it. 
+
+Press 3, Decline the offer, it doesn&#39;t sit right with you. ~~]</tw-passagedata><tw-passagedata pid="16" name="Call" tags="" position="725,0" size="100,100">You anxiously wait as the phone rings. Suddenly, a pre-recorded voice greets you. Something feels a bit eerie about this situation.
+
+&quot;Hello, you have reach SoulSwap action line. If you have this number, it means you have been selected for a gold level opportunity body swap. You have a limited amount of time to accept or deny this request. There will be no penalty to you if you do not participate, but you will not receive the opportunity again. If you accept the offer, press 1. If you would like to ask more questions first, press 2. If you reject the offer, press 3.&quot;
+
+[[Press 1]], Accept the offer immediately, you need this. 
+
+[[Press 2]], Ask more questions, you&#39;re not sure if this is worth it. 
+
+[[Press 3]], Decline the offer, it doesn&#39;t sit right with you. </tw-passagedata><tw-passagedata pid="17" name="find more" tags="confused" position="900,125" size="100,100">The representative provides you with references of positive experiences. Not only have some of your favorite celebrities and politicians particpiated before, but even a few of your friends and family. You reassure yourself, the wealthy wouldn&#39;t do this if it wasn&#39;t safe, right? The right thing to do is the right thing to take care of your family at the end of the day. You realize you don&#39;t have many other options.
+
+&quot;What would my financial compensation be for participating in this, would it cover this months rent?&quot; you ask nervously. 
+
+The representative replies laughing, &quot;Rent? Your compensation would probably cover your child&#39;s college education, a house, and then some! Don&#39;t be silly. You don&#39;t want to dwindle into a worse situation every day and always regret this moment.&quot;
+
+Go back to (text-colour:yellow)[[call the number again]] with your choice. 
+</tw-passagedata><tw-passagedata pid="18" name="plan" tags="emergency" position="975,700" size="100,100">As the chaos unfolds around you, the reality of your situation comes crashing down. The explosions have shattered more than just the tranquility of Martin&#39;s estate; they&#39;ve obliterated your illusion of safety and control. Smoke billows from damaged sections of the compound, and the once-pristine grounds are now littered with debris.
+
+&lt;img src = &quot;https://ogden_images.s3.amazonaws.com/www.newsandsentinel.com/images/2023/11/14214438/11-15-23-Winberi-Fire-2-tle-1100x825.jpg&quot; 
+width = &quot;770&quot; height = &quot;500&quot;&gt;
+
+Suddenly, Martin&#39;s head of security bursts onto the pool deck, his face a mask of urgency and barely contained panic. &quot;Sir,&quot; he shouts, &quot;we need to get you to the safe room immediately. They&#39;ve breached the outer defenses!&quot;
+
+As you&#39;re hurried through the mansion&#39;s winding corridors, alarms blaring and staff scurrying in all directions, you catch glimpses of the attackers through shattered windows. They move with military precision, their advanced weaponry a stark contrast to the opulent surroundings they&#39;re destroying.
+
+In the safe room, surrounded by banks of monitors displaying security feeds from around the estate, the true gravity of your situation becomes clear. This isn&#39;t just a random attack; it&#39;s a coordinated assault aimed specifically at Martin. The head of security, assuming you&#39;re Martin, begins rattling off information about rival corporations, industrial espionage, and something called &quot;Project Lazarus.&quot;
+
+&lt;img src = &quot;https://img.freepik.com/premium-photo/team-security-guards-monitoring-cctv-cameras-surveillance-room-cctv-security-concept-futuristic-cybersecurity-workspace-team-security-professionals-working-together-ai-generated_538213-37351.jpg&quot;
+width = &quot;770&quot; height = &quot;500&quot;&gt;
+
+Your mind reels as you try to process this flood of information. You realize that your decision to indulge in luxury rather than investigate Martin&#39;s dealings has left you woefully unprepared for this moment. 
+
+As the 48-hour mark approaches, but with some time still remaining, your comm device suddenly buzzes. It&#39;s a message from Soul Swap, marked with an urgent alert icon. 
+&lt;img src = &quot;https://cdn.kqed.org/wp-content/uploads/sites/10/2023/10/GettyImages-1503223451-1020x680.jpg&quot;
+width = &quot;770&quot; height = &quot;550&quot;&gt;
+Try to read the (text-colour:red)+(bg:black)[[text]]</tw-passagedata><tw-passagedata pid="19" name="expose" tags="" position="575,1075" size="100,100">Armed with evidence of Soul Swap&#39;s unethical practices, you decide to go public. Your revelation sends shockwaves through society, exposing the dark underbelly of the body-swapping industry. As investigations unfold, you find yourself at the center of a media storm, your borrowed face plastered across news feeds worldwide.
+
+The company, desperate to salvage its reputation, finally agrees to help you. They locate your original body, but the news is grim. It&#39;s been damaged, rendered unsuitable for consciousness transfer due to Martin&#39;s reckless actions. In a twist of irony, Soul Swap offers you a choice of a new, synthetic body – a cutting-edge technology they&#39;ve been developing in secret.
+
+Despite their cooperation, you decide to follow through with exposing Soul Swap&#39;s practices. Your actions lead to widespread reforms in body-swapping technology and regulations. New laws are passed, ethical guidelines are established, and oversight committees are formed.
+
+As you adjust to your new synthetic form, you find yourself hailed as a whistleblower and champion of justice. Your old life is gone, but you&#39;ve gained a platform to advocate for the rights of the vulnerable in this brave new world of interchangeable bodies and fluid identities.
+
+THE END
+[[GO TO COURSE REFLECTION]]</tw-passagedata><tw-passagedata pid="20" name="Negotiate" tags="" position="450,1075" size="100,100">Realizing the power of your position, you decide to leverage your knowledge to negotiate a new deal with Soul Swap. Instead of exposing them, you propose becoming a consultant, helping to develop ethical guidelines for body-swapping technology.
+
+The company, relieved to avoid a scandal, eagerly agrees. You find yourself in a unique position, straddling two worlds. By day, you work within the system, pushing for incremental changes and safeguards. By night, you use your influence and Martin&#39;s resources to secretly aid your former family.
+
+Years pass, and you never regain your original body. The face in the mirror remains Martin&#39;s, a constant reminder of the life you lost. Yet, you find a new purpose in your work. You become a respected voice in the field of consciousness transfer ethics, preventing others from suffering your fate.
+
+Your family, unaware of your true identity, benefits from the anonymous generosity of a mysterious benefactor. You watch from afar as your child grows, succeeds, and thrives – bittersweet moments that remind you of the sacrifice you&#39;ve made.
+
+As technology advances, you grapple with new ethical dilemmas. The line between human and machine blurs, and questions of consciousness and identity become even more complex. Through it all, you remain a guardian at the crossroads of humanity and technology, forever changed by your experience but determined to shape a more ethical future.
+
+THE END
+[[GO TO COURSE REFLECTION]]</tw-passagedata><tw-passagedata pid="21" name="Cooperate" tags="" position="250,1075" size="100,100">You decide to cooperate fully with the authorities, providing crucial information about Martin&#39;s crimes. Your insider knowledge proves invaluable, leading to the dismantling of his vast criminal empire. Shell companies are exposed, hidden accounts are frozen, and Martin&#39;s co-conspirators are brought to justice one by one.
+
+Your cooperation earns you leniency, but the legal system struggles with your unique situation. You&#39;re still trapped in Martin&#39;s body, a living reminder of the case&#39;s complexity. As the trials progress, you become a key witness, your testimony helping to convict some of the most powerful people in the world.
+
+In the aftermath, you find yourself in a strange limbo. Legally, you&#39;re recognized as Jules, but the face you wear is still Martin&#39;s. You use this unique position to advocate for better regulation of body-swapping technology and support for its victims.
+
+Over time, you find a way to reconnect with your family. It&#39;s a delicate balance – you can&#39;t reveal your true identity, but you become a benefactor and friend to them. You live a strange double life, publicly known as a reformed &quot;Martin&quot; working to make amends, while privately cherishing the moments you can spend with your loved ones.
+
+Your experience becomes a cautionary tale, sparking debates about identity, consciousness, and the ethics of body-swapping. As you navigate this new reality, you find purpose in working to ensure that no one else falls victim to the dark side of this technology.
+
+THE END
+[[GO TO COURSE REFLECTION]]</tw-passagedata><tw-passagedata pid="22" name="escape" tags="" position="375,1200" size="100,100">Realizing the depth of Martin&#39;s crimes and the danger you&#39;re in, you decide to use his vast resources to escape. You flee the country, using a network of Martin&#39;s shady contacts to establish a new identity in a far-off land.
+
+In your new life, you grapple with the moral implications of your actions. You&#39;re free from immediate danger, but you carry the weight of Martin&#39;s sins and the knowledge of the family you left behind. To assuage your guilt, you use your wealth to anonymously support your former family and fund research into consciousness transfer technology.
+
+Years pass, and you build a new existence. You become a reclusive philanthropist, known for funding cutting-edge scientific research. Your work attracts brilliant minds from around the world, all focused on unraveling the mysteries of consciousness and identity.
+
+Then, a breakthrough occurs. Your team discovers a way to transfer consciousness into a cloned body. After extensive testing, you decide to undergo the procedure yourself. You wake up in a new body – not your original one, but one free from Martin&#39;s identity.
+
+With your new lease on life, you make the journey back to your hometown. You introduce yourself to your family as a long-lost relative, a story made plausible by the genetic similarity of your cloned body. As you rebuild relationships with your loved ones, you&#39;re torn between the joy of reconnection and the burden of your secrets.
+
+Your experience becomes a testament to the complexities of identity in an age of fluid consciousness. You&#39;ve lived three lives – your original self, Martin, and now this new identity. Each has shaped you, leaving you to ponder the true nature of self in a world where bodies can be swapped and minds can be moved.
+
+THE END
+[[GO TO COURSE REFLECTION]]</tw-passagedata><tw-passagedata pid="23" name="Infiltrate" tags="" position="775,1100" size="100,100">You decide to go deep undercover in the body-swapping black market. Using Martin&#39;s connections and resources, you immerse yourself in this shadowy world. You witness the depths of human depravity as the wealthy trade bodies like commodities, discarding lives and identities at will.
+
+Your search for Martin becomes an obsession. You swap bodies multiple times, each transfer bringing you closer to your target but eroding your sense of self. You experience life from countless perspectives – young and old, rich and poor, healthy and ill. Each swap leaves an imprint on your psyche, blurring the lines of your original identity.
+
+Finally, after months of searching, you locate Martin. He&#39;s swapped bodies multiple times, always staying one step ahead. In a twist of fate, you manage to trap him in the body of a convicted criminal, ensuring he faces justice for his crimes.
+
+However, your victory comes at a great cost. The experience of inhabiting multiple bodies has left you with a fractured sense of identity. You struggle to remember which experiences belong to Jules and which belong to the many bodies you&#39;ve inhabited. The faces in the mirror change, but the confusion remains constant.
+
+As the authorities dismantle the underground network, you find yourself adrift. You&#39;ve achieved your goal, but lost yourself in the process. You become a subject of intense study, your fractured psyche providing valuable insights into the long-term effects of multiple consciousness transfers.
+
+In the end, you&#39;re left to rebuild your sense of self from the fragments of many lives. Your journey becomes a cautionary tale about the price of vengeance and the fragility of identity in a world where consciousness has become transferable.
+
+THE END
+[[GO TO COURSE REFLECTION]]</tw-passagedata><tw-passagedata pid="24" name="reclaim" tags="" position="900,1100" size="100,100">Determined to reclaim your original identity, you track down your body, now inhabited by someone else – a wealthy individual who bought it through the black market. In a desperate move, you attempt a forced swap back, using a makeshift device cobbled together from black market technology.
+
+The process goes horribly wrong. Instead of a clean transfer, your consciousness is split between Martin&#39;s body and your original one. You awaken to a bizarre dual existence – your mind simultaneously inhabiting two physical forms.
+
+This unprecedented situation throws the scientific community into a frenzy. You become a living experiment, your dual consciousness challenging everything known about the nature of identity and awareness. You experience the world through two sets of eyes, two nervous systems, two distinct lives.
+
+In Martin&#39;s body, you continue to navigate his high-stakes world of power and corruption. In your original body, you reconnect with your family, but the joy is bittersweet as you struggle to fully inhabit your old life.
+
+Your dual existence raises profound philosophical and ethical questions. Are you one person or two? Which body holds your true self? The legal implications are equally complex – you&#39;re simultaneously the victim and the perpetrator of an illegal body swap.
+
+As you grapple with this fragmented reality, you become a symbol of the unforeseen consequences of consciousness transfer technology. Your story sparks debates about the nature of the soul, the ethics of body-swapping, and the potential dangers of pushing the boundaries of human identity.
+
+In this split existence, you search for a way to merge your fractured self, all while navigating the complexities of living two lives. Your journey becomes a profound exploration of what it truly means to be human in an age where consciousness can be divided and transferred at will.
+
+THE END
+[[GO TO COURSE REFLECTION]]</tw-passagedata><tw-passagedata pid="25" name="GO TO COURSE REFLECTION" tags="" position="575,1325" size="100,100">In creating &quot;Soul Swap,&quot; I aimed to craft a narrative that not only engaged the audience but also challenged them to consider profound ethical questions about identity, technology, and social inequality. The interactive structure of the story was designed to immerse viewers in the protagonist&#39;s dilemmas, forcing them to grapple with difficult choices and their consequences.
+
+Narrative Structure:
+The story&#39;s branching narrative allowed for multiple pathways and endings, enhancing replayability and encouraging viewers to explore different ethical standpoints. By offering choices at critical junctures - such as whether to enjoy luxury, investigate Martin&#39;s dealings, or stay cautious - I aimed to create a sense of agency and personal investment in the story&#39;s outcome. This structure also allowed for the exploration of various themes and consequences, providing a more comprehensive examination of the ethical landscape surrounding body-swapping technology.
 
 
-</tw-passagedata><tw-passagedata pid="3" name="gumballs" tags="" position="600,700" size="100,100">Once, for an entire week between the ages of two and two-point-one, your entire vocabulary consisted of the word &quot;gumball,&quot; which became the name of every person and object as well as the lone verb in your dramatic revision of the human language. Now, somehow, the occurrence of this word makes you vaguely [[uncomfortable]].
+Ethical Considerations:
+&quot;Soul Swap&quot; delves into several ethical dilemmas central to the premise of consciousness transfer:
 
-</tw-passagedata><tw-passagedata pid="4" name="uncomfortable" tags="" position="800,500" size="100,100">&quot;!!!&quot; says the ostrich, also apparently unsettled.
+- Class exploitation: The story highlights how advanced technology can exacerbate existing social inequalities, with the wealthy using body-swapping to escape consequences.
+- Identity and autonomy: By placing the audience&#39;s character in Martin&#39;s body, the narrative explores questions of selfhood and the relationship between mind and body.
+- Technological ethics: The story challenges viewers to consider the moral implications of consciousness transfer technology and its potential for misuse.
+- Consent and coercion: The audience&#39;s initial agreement to the swap raises questions about informed consent in situations of economic desperation.
+
+These ethical themes were woven throughout the narrative, with each choice and consequence designed to provoke thought and discussion.
 
 
-But you speak Human, not Ostrich. You take a step closer.
+Audience Engagement:
+
+To maintain audience engagement, I employed several strategies:
+
+- High-stakes decisions: Each choice presented to the viewer had significant consequences, encouraging emotional investment in the outcome.
+- Vivid world-building: The contrast between the audience&#39;s dystopian reality and Martin&#39;s luxurious life was designed to be visually striking and thematically resonant.
+- Psychological tension: The story&#39;s focus on identity crisis and the gradual uncovering of dark truths was intended to create a sense of psychological thriller, keeping viewers on edge.
+- Multiple endings: By offering various possible conclusions, the story encourages repeated viewing and discussion among audiences about different outcomes and their implications.
 
 
-&quot;!!!,&quot; the ostrich reasserts.
+In developing &quot;Soul Swap,&quot; I strived to create a narrative that was not only entertaining but also thought-provoking, challenging viewers to consider the ethical implications of advanced technology in a society marked by inequality. The interactive format allowed for a more nuanced exploration of these themes, with each choice revealing new facets of the ethical dilemmas at play. By blending elements of science fiction, psychological thriller, and social commentary, &quot;Soul Swap&quot; aims to leave a lasting impact on its audience, prompting reflection on the nature of identity and the potential consequences of our technological advancements</tw-passagedata><tw-passagedata pid="26" name="darkness" tags="" position="625,375" size="100,100">When you open your eyes again, the world has [[changed]]. </tw-passagedata><tw-passagedata pid="27" name="changed" tags="luxury" position="775,425" size="100,100">&lt;img src = &quot;https://img-v2.gtsstatic.net/reno/imagereader.aspx?imageurl=https%3A%2F%2Fstatic-sir-corp-blog-production.gtsstatic.net%2Fblog-api%2Fwp-content%2Fuploads%2F2021%2F02%2Fimagereader.aspx-11.jpeg&amp;option=N&amp;permitphotoenlargement=false&amp;w=1200&quot;
+width = &quot;770&quot; height &quot;500&quot;&gt;
 
+You find yourself in a bed so luxurious it feels like floating on a cloud. The room around you is vast, with floor-to-ceiling windows offering a breathtaking view of the city skyline. For a moment, you forget to breathe, overwhelmed by the opulence that surrounds you. This is Martin&#39;s life, and for the next 48 hours, it&#39;s yours to (text-colour:yellow)[[experience]]</tw-passagedata><tw-passagedata pid="28" name="close your eyes" tags="" position="850,775" size="100,100">You&#39;re expecting to feel the familiar rush of consciousness shifting. But [[nothing happens]]. </tw-passagedata><tw-passagedata pid="29" name="nothing happens" tags="lasers" position="575,800" size="100,100">The pod opens, and you find yourself still in Martin&#39;s body. The lead technician approaches, her face a mask of concern.
+&quot;I&#39;m sorry, sir,&quot; she begins, her voice trembling slightly. &quot;There seems to be a... complication.&quot;
+&lt;img src = &quot;https://www.ccianesthesia.com/wp-content/uploads/2021/04/cci_CRNA-Supervision-vs-Medical-Direction.jpg&quot;
+width = &quot;770&quot; height = &quot;400&quot;&gt;
 
-You carefully blink each of your eyes in succession, an old trick for stabilizing realities. It is unmistakably an ostrich;
-[[and . . . -&gt;the last thing]]</tw-passagedata></tw-storydata>
+Over the next hour, a nightmarish reality unfolds. The Soul Swap representatives, their corporate facades crumbling, reveal that they&#39;ve lost contact with Martin – and by extension, your original body. They assure you they&#39;re doing everything they can to locate him, but their words ring hollow in the face of your mounting panic.
+
+As the gravity of the situation sinks in, you feel a suffocating sense of claustrophobia. You&#39;re trapped in a body that isn&#39;t yours, in a life you don&#39;t understand, with no clear way back to your own existence. The panic sets in as you realize you are now indefinitely trapped in Martin&#39;s body, with all the complexities and dangers that come with his life.
+
+(text-colour:red)[
+[[Confront the company]]
+
+[[Track down Martin]]
+
+[[Go to the authorities]]]</tw-passagedata></tw-storydata>
 <script title="Twine engine code" data-main="harlowe">(function(){"use strict";
 var require,define;!function(){var e={},r={};require=function(i){var n=e[i];return n&&(r[i]=n[1].apply(void 0,n[0].map(require)),e[i]=void 0),r[i]},(define=function(r,i,n){if("function"==typeof r)return r();e[r]=[i,n]}).amd=!0}();/*!
  * https://github.com/paulmillr/es6-shim
